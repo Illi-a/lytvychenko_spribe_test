@@ -1,0 +1,40 @@
+	Summary
+User overwrited by using create request with same login twice
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Create
+
+	Version
+-
+
+	Severity
+Critical
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Create user by create request with specific login.
+2) Create another user by create request with same login as first user.
+3) Pay attention to response.
+
+	Actual Result
+Second user overwrites first. Response code 200.
+
+	Expected Rusult
+Second user is not created. Response code 400.
+
+	Additional
+AutoTest name - usersWithSameLoginCantBeCreated

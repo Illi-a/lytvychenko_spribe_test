@@ -1,0 +1,39 @@
+	Summary
+Incorrect status code is shown after using get request with non-existing userId
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Get
+
+	Version
+-
+
+	Severity
+Trivial
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Send get request with non-existing userId.
+2) Pay attention to response.
+
+	Actual Result
+Response code 200.
+
+	Expected Rusult
+Response code 400.
+
+	Additional
+AutoTest name - getUserNegativeTest

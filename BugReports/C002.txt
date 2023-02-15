@@ -1,0 +1,40 @@
+	Summary
+User with existing screenName is created in system by using create request 2 times with same screenName
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Create
+
+	Version
+-
+
+	Severity
+Major
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Create user by create request with specific screenName.
+2) Create another user by create request with the same screenName as first user.
+3) Pay attention to response.
+
+	Actual Result
+Two users is created with same ScreenName. Response code 200.
+
+	Expected Rusult
+Second user not created. Response code 400.
+
+	Additional
+AutoTest name - usersWithSameScreenNameCantBeCreated

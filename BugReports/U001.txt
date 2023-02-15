@@ -1,0 +1,42 @@
+	Summary
+User updated in system by using the update request with admin editor
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Update
+
+	Version
+-
+
+	Severity
+Major
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Create user by create request.
+2) Create admin by create request.
+3) Update user by update request using admin editor(login).
+4) Pay attention to response.
+
+	Actual Result
+User is edited. Response code 200.
+
+	Expected Rusult
+User is not edited. Response code 403.
+
+	Additional
+AutoTest name - userCantBeEditedByAdmin
+Bug also can be reproduced by editing admin with another admin editor (Bug report U002)

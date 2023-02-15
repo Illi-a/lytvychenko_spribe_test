@@ -1,0 +1,40 @@
+	Summary
+User created in system by using create request with invalid amount of characters in password
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Create
+
+	Version
+-
+
+	Severity
+Critical
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Create user by create request with invalid amount of characters in password(0, 6, 16).
+2) Pay attention to response.
+
+	Actual Result
+User is created with invalid amount of characters in password. Response code 200.
+
+	Expected Rusult
+User is not created. Response code 400.
+
+	Additional
+AutoTest name - userPasswordTest
+Bug was reproduced with 0, 6, 16.

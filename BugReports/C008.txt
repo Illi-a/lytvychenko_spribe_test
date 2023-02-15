@@ -1,0 +1,39 @@
+Summary
+User not created in system by using create request with value 16 in field age
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Create
+
+	Version
+-
+
+	Severity
+Minor
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Create user by create request with 16 in age field.
+2) Pay attention to response.
+
+	Actual Result
+User is not created with age 16. Response code 403.
+
+	Expected Rusult
+User is created. Response code 200.
+
+	Additional
+AutoTest name - userAgeTest

@@ -1,0 +1,39 @@
+	Summary
+User created in system by using create request with value 60 in field age
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Create
+
+	Version
+-
+
+	Severity
+Major
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Create user by create request with 60 in age field.
+2) Pay attention to response.
+
+	Actual Result
+User is created with age 60. Response code 200.
+
+	Expected Rusult
+User is not created. Response code 400.
+
+	Additional
+AutoTest name - userAgeTest

@@ -1,0 +1,40 @@
+	Summary
+User created in system by using create request with special symbols in password
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Create
+
+	Version
+-
+
+	Severity
+Minor
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Create user by create request with special symbols in password(!”#$%&).
+2) Pay attention to response.
+
+	Actual Result
+User is created with special symbols in password field. Response code 200.
+
+	Expected Rusult
+User is not created. Response code 400.
+
+	Additional
+AutoTest name - userCantBeCreatedWithSpecialSymbolsInPassword
+Tested symbols - ! ? *

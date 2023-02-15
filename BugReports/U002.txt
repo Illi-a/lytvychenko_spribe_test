@@ -1,0 +1,42 @@
+	Summary
+Admin updated in system by using the update request with another admin editor
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Update
+
+	Version
+-
+
+	Severity
+Major
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Create admin by create request.
+2) Create another admin by create request.
+3) Update admin by update request using another admin editor(login).
+4) Pay attention to response.
+
+	Actual Result
+Admin is edited. Response code 200.
+
+	Expected Rusult
+Admin is not edited. Response code 403.
+
+	Additional
+AutoTest name - adminantBeEditedByAdmin
+Bug also can be reproduced by editing user with admin editor (Bug report U001)

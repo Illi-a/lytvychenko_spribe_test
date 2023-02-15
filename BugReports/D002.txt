@@ -1,0 +1,42 @@
+	Summary
+User deleted from system by using the delete reques with another user editor
+
+	Project
+Spribe_Test
+
+	Component
+PlayerController Delete
+
+	Version
+-
+
+	Severity
+Major
+
+	Priority
+-
+
+	Author
+Lytvychenko Illia 
+
+	Environment
+IntelliJ IDEA 2021.3
+Java 11
+RestAssured Client 5.3.0
+Postman 9.31.0
+
+	Steps to reproduce
+1) Create user by create request.
+2) Create another user by create request.
+3) Delete user by delete request using another users editor(login).
+4) Pay attention to response.
+
+	Actual Result
+User is deleted. Response code 204.
+
+	Expected Rusult
+User is not deleted. Response code 403.
+
+	Additional
+AutoTest name - userCantBeDeletedByUser
+Bug also can be reproduced using admin instead of user(Bug report D001) 
