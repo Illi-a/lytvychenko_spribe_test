@@ -121,7 +121,7 @@ public class PlayerControllerTest {
         }
     }
 
-    @Test(groups = {"General"}, expectedExceptions = java.lang.AssertionError.class, dependsOnGroups = "Crucial", invocationCount = INVOCATION_COUNT)
+    @Test(groups = {"General", "Re-Testing"}, expectedExceptions = java.lang.AssertionError.class, dependsOnGroups = "Crucial", invocationCount = INVOCATION_COUNT)
     public void usersWithSameLoginCantBeCreated() {
         PlayerController playerController = new PlayerController();
         String usersLogin = "sameUserLogin";
@@ -130,10 +130,13 @@ public class PlayerControllerTest {
         int user1Id = playerController.createRandomUserWithCustomLogin(usersLogin);
         try {
             user2Id = playerController.createRandomUserWithCustomLogin(usersLogin);
-        } catch (java.lang.AssertionError e) {
-            playerController.deleteUser(user2Id);
         } finally {
-            playerController.deleteUser(user1Id);
+            if (user2Id != 0) {
+                playerController.deleteUser(user1Id);
+                playerController.deleteUser(user2Id);
+            } else {
+                playerController.deleteUser(user1Id);
+            }
         }
     }
 
@@ -328,14 +331,20 @@ public class PlayerControllerTest {
     public void userCantBeDeletedByUser() {
         PlayerController playerController = new PlayerController();
         String userLogin = "userDelUser";
+        boolean assertionFailed = false;
         int user1Id = playerController.createRandomUserWithCustomLogin(userLogin);
         int user2Id = playerController.createValidUser();
         try {
             playerController.deleteUserUsingCustomEditor(userLogin, user2Id);
         } catch (java.lang.AssertionError e){
-            playerController.deleteUser(user2Id);
+            assertionFailed = true;
         } finally {
-            playerController.deleteUser(user1Id);
+            if (!assertionFailed) {
+                playerController.deleteUser(user1Id);
+            } else {
+                playerController.deleteUser(user1Id);
+                playerController.deleteUser(user2Id);
+            }
         }
     }
 
@@ -364,14 +373,20 @@ public class PlayerControllerTest {
     public void adminCantBeDeletedByUser() {
         PlayerController playerController = new PlayerController();
         String userLogin = "userDelAdmin";
+        boolean assertionFailed = false;
         int userId = playerController.createRandomUserWithCustomLogin(userLogin);
         int adminId = playerController.createValidUser();
         try {
             playerController.deleteUserUsingCustomEditor(userLogin, adminId);
         } catch (java.lang.AssertionError e) {
-            playerController.deleteUser(adminId);
+            assertionFailed = true;
         } finally {
-            playerController.deleteUser(userId);
+            if (!assertionFailed) {
+                playerController.deleteUser(userId);
+            } else {
+                playerController.deleteUser(userId);
+                playerController.deleteUser(adminId);
+            }
         }
     }
 
@@ -408,15 +423,21 @@ public class PlayerControllerTest {
         }
     }
 
-    @Test(groups = {"General"}, expectedExceptions = java.lang.AssertionError.class, dependsOnGroups = "Crucial", invocationCount = INVOCATION_COUNT)
+    @Test(groups = {"General", "Re-Testing"}, expectedExceptions = java.lang.AssertionError.class, dependsOnGroups = "Crucial", invocationCount = INVOCATION_COUNT)
     public void userCantBeDeletedByHimself() {
         PlayerController playerController = new PlayerController();
         String userLogin = "userDelHimself";
+        boolean assertionFailed = false;
         int userId = playerController.createRandomUserWithCustomLogin(userLogin);
         try {
             playerController.deleteUserUsingCustomEditor(userLogin, userId);
         } catch (java.lang.AssertionError e) {
-            playerController.deleteUser(userId);
+            assertionFailed = true;
+        }
+        finally{
+            if (!assertionFailed){
+                playerController.deleteUser(userId);
+            }
         }
     }
 
